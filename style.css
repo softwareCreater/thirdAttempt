@@ -157,13 +157,11 @@ html{
     font-size: 3rem;
     left: 3rem;
     top: 23rem;
-    display: none;
 }
 .music-duration{
         position: absolute;
         color: #fff;
         font-size: 3rem;
         right: 3rem;
-        display: none;
         top: 23rem;
 }
