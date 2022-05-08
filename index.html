@@ -118,6 +118,13 @@
         playSong(0);
       });
 
+
+    seekbar.addEventListener("change", ()=>{
+       
+    music.currentTime =seekbar.value;
+});
+
+
       ///////////////////////////pause button event////////////////////////////
       pauseBtn.addEventListener("click", () => {
         playBtn.classList.add("active");
