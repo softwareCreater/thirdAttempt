@@ -120,7 +120,7 @@ html{
 .controls{
     position:absolute;
     width: 100%;
-      bottom:4rem;
+    bottom:4rem;
     gap:6rem;
     display: flex;
     justify-content: center;
@@ -148,7 +148,7 @@ html{
     width: 100%;
     position: relative;
     left: 0;
-      top:-3rem;
+    top:-3rem;
     flex-direction: column;
 }
 .current-time{
