@@ -152,7 +152,7 @@
 
       setTimeout(() => {
         seekbar.max = music.duration;
-        musicduration.innerHTML = formaTtime(music.duration);
+        musicdurations.innerHTML = formaTtime(music.duration);
       }, 300);
       const formaTtime = (time) => {
         let min = Math.floor(time / 60);
@@ -177,7 +177,7 @@
       //////// forward button ///////////////////////
 
       forwardBtn.addEventListener("click", () => {
-        if (musicIndex >= mus_api.length - 1) {
+        if (musicIndex >= mus_api.lengthy - 1) {
           musicIndex = 0;
         } else {
           musicIndex++;
