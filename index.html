@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>musicApp</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <audio src="" autoplay id="audio-src"></audio>
+    <div class="container">
+      <div class="music-box">
+        <h2 class="titles">
+          <marquee behavior="scroll" direction="left" class="title"
+            >title track</marquee
+          >
+        </h2>
+
+        <p class="artist">Artist name</p>
+        <div class="covers">
+          <img src="img/IMG-20220504-WA0051.jpg" class="cover" />
+        </div>
+        <!-- ******************controls********************** -->
+        <div class="main">
+          <div class="scroll">
+            <input type="range" name="" id="" class="seek-bar" value="0" />
+          </div>
+          <p class="current-time">00 : 00</p>
+          <p class="music-duration">00 : 00</p>
+        </div>
+        <div class="controls">
+          <i class="fas fa-backward active"></i>
+          <i class="fas fa-play active"></i>
+          <i class="fas fa-pause"></i>
+          <i class="fas fa-forward active"></i>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const mus_api = [
+        {
+          title: "Kabhi jo badal barse",
+          src: "song/kabhi.mp3",
+          cover: "img/IMG-20220504-WA0047.jpg",
+          artist: "Arijit singh",
+        },
+        {
+          title: "Aaj fir tumpe pyar aaya hai",
+          src: "song/a.mp3",
+          cover: "img/IMG-20220504-WA0048.jpg",
+          artist: "unknown",
+        },
+        {
+          title: "bheegi bheegi sadko pe",
+          src: "song/b.mp3",
+          cover: "img/IMG-20220504-WA0049.jpg",
+          artist: "arijit singh",
+        },
+        {
+          title: "Is kadar hamko",
+          src: "song/i.mp3",
+          cover: "img/IMG-20220504-WA0050.jpg",
+          artist: "Darshan ravel",
+        },
+        {
+          title: "Tum hi ho",
+          src: "song/t.mp3",
+          cover: "img/IMG-20220504-WA0051.jpg",
+          artist: "arijit singh",
+        },
+        {
+          title: "Nach re patarki",
+          src: "song/patarka.mp3",
+          cover: "img/IMG-20220504-WA0050.jpg",
+          artist: "arvind akela",
+        },
+        
+        {
+          title: "ashiq banaya",
+          src: "song/ab.m4a",
+          cover: "img/IMG-20220504-WA0053.jpg",
+          artist: "himesh reshamiya",
+        },
+        {
+          title: "pata nahi ji kaun sa nasa karta hai",
+          src: "song/pata.mp3",
+          cover: "img/IMG-20220504-WA0053.jpg",
+          artist: "hardy sandhu",
+        },
+      ];
+      let musicIndex = 0;
+      const title = document.querySelector(".title");
+      const artist = document.querySelector(".artist");
+      const cover = document.querySelector(".cover");
+      const seekbar = document.querySelector(".seek-bar");
+      const music = document.querySelector("#audio-src");
+      const currentMusicTime = document.querySelector(".current-time");
+      const musicduration = document.querySelector(".music-duration");
+
+      const playBtn = document.querySelector(".fa-play");
+      const pauseBtn = document.querySelector(".fa-pause");
+      const forwardBtn = document.querySelector(".fa-forward");
+      const backwardBtn = document.querySelector(".fa-backward");
+
+      ///////////////////////////////play button event //////////////////////////////////
+      playBtn.addEventListener("click", () => {
+        playBtn.classList.remove("active");
+        pauseBtn.classList.add("active");
+        cover.classList.add("track");
+        document.querySelector(".covers").style.background = "transparent";
+        // music.play();
+        playSong(0);
+      });
+
+      ///////////////////////////pause button event////////////////////////////
+      pauseBtn.addEventListener("click", () => {
+        playBtn.classList.add("active");
+        pauseBtn.classList.remove("active");
+        cover.classList.remove("track");
+        music.pause();
+      });
+
+      ////////////////////////music play function/////////////////
+      const playSong = (i) => {
+        seekbar.value = 0; //// set range slide value to 0
+        let song = mus_api[i];
+        // currentMusic = i;
+
+        title.innerHTML = mus_api[i].title;
+        artist.innerHTML = mus_api[i].artist;
+        cover.src = mus_api[i].cover;
+        music.src = mus_api[i].src;
+          currentMusicTime.innerHTML = "00 : 00";
+      };
+
+      ///// fromating time in min and sec ////////
+
+
+
+      setTimeout(() => {
+        seekbar.max = music.duration;
+        musicduration.innerHTML = formaTtime(music.duration);
+      }, 300);
+      const formaTtime = (time) => {
+        let min = Math.floor(time / 60);
+        if(min < 10) {
+          min = "0" + min;
+        }
+        let sec = Math.floor(time % 60);
+        if(sec < 10) {
+          sec = "0" + sec;
+        }
+        return `${min} : ${sec}`;
+      };
+    
+
+      // formatTime(music.duration);
+      //////// forward button ///////////////////////
+
+      forwardBtn.addEventListener("click", () => {
+        if (musicIndex >= mus_api.length - 1) {
+          musicIndex = 0;
+        } else {
+          musicIndex++;
+        }
+        playSong(musicIndex);
+      });
+
+      backwardBtn.addEventListener("click", () => {
+        if (musicIndex <= 0) {
+          musicIndex = mus_api.length - 1;
+        } else {
+          musicIndex--;
+        }
+        playSong(musicIndex);
+      });
+
+      ////////////////////////////////////copy ////////////////////////////////////////////////
+      ////////////////////function for setting up music////////////
+    </script>
+  </body>
+</html>

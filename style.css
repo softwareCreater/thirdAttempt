@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;700&family=Pacifico&family=Piazzolla&family=Radio+Canada:wght@500&family=Rubik+Puddles&family=Source+Code+Pro:wght@500&family=Square+Peg&family=Water+Brush&family=Work+Sans&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Piazzolla", serif;
+}
+html{
+    font-size: 62.5%;
+    /* background: rgb(4,4,44); */
+    /* background-color: #000; */
+    background: url('img/img.jpg');
+    background-size: 100% 100%;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(5rem);
+    /* position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.music-box{
+    width:100%;
+    height: 100%;
+    /* padding: 2rem 3rem; */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    /* background: #f1f1f1; */
+}
+.title{
+    position: absolute;
+    top: 2rem;
+    left:5%;
+    margin: auto;
+    padding: 0 6rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+    text-transform: capitalize;
+    color:#fff;
+    width: 90%;
+}
+.artist{
+    position: absolute;
+    top: 8rem;
+     font-size: 2.8rem;
+     width: 100%;
+    text-align: center;
+    font-weight: 600;
+    text-transform: capitalize;
+    color:#fff;
+}
+.covers{
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    margin-top: -2rem;
+    border-radius: 50%;
+    /* background:linear-gradient(45deg,rgba(255,255,255,0.05),#f1f1f1); */
+    /* filter:blur(.1rem) contrast(120%); */
+    object-fit: cover;
+    /* transition: 1s; */
+}
+.cover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -2rem;
+    border-radius: 50%;
+    /* filter:blur(.1rem) contrast(120%); */
+    /* object-fit: cover; */
+    transition: 1s;
+    /* opacity: 0; */
+}
+.track{
+    animation: rotate 5s linear infinite;
+    opacity: 1;
+    transition: 1s;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+        /* transform: scale(1); */
+    }
+    50%{
+        /* transform: scale(1.2); */
+    }
+    100%{
+        transform: rotate(360deg);
+        /* transform: scale(1); */
+    }
+}
+.seek-bar::-webkit-scrollbar-thumb{
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 2rem;
+    background: lime;
+    box-shadow: -40rem 0 0 40rem lime;
+
+}
+.seek-bar{
+    -webkit-appearance: none;
+    position: absolute;
+    top: 22rem;
+    height: .5rem;
+    left:5%;
+    width:90%;
+    margin: auto;
+    /* left:0; */
+    background: #fff;
+
+}
+.controls{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    /* background: #f1f1f1; */
+    gap:5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    padding: 4rem 0;
+    font-size: 4rem;
+}
+.controls i{
+    display: none;
+    opacity: 0;
+    transition: 1s;
+    color: #f1f1f1;
+    font-size: 3rem;
+    cursor: pointer;
+}
+.controls i.active{
+    display: inline;
+    opacity: 1;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    left: 0;
+    flex-direction: column;
+}
+.current-time{
+    position: absolute;
+    color: #fff;
+    font-size: 3rem;
+    left: 3rem;
+    top: 23rem;
+    display: none;
+}
+.music-duration{
+        position: absolute;
+        color: #fff;
+        font-size: 3rem;
+        right: 3rem;
+        display: none;
+        top: 23rem;
+}
