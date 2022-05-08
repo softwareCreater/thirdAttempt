@@ -168,6 +168,12 @@
     
 
       // formatTime(music.duration);
+
+    set interval(()=>{
+       seekbar.value =music.currentTime;
+       currentMusicTime.innerHTML = formattime(music.currentTime);
+       },500);
+    
       //////// forward button ///////////////////////
 
       forwardBtn.addEventListener("click", () => {
