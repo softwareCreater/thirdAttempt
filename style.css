@@ -122,14 +122,14 @@ html{
     width: 100%;
    
     /* background: #f1f1f1; */
-    gap:5rem;
+    gap:6rem;
     display: flex;
     justify-content: center;
     align-items: center;
     /* flex-direction: column; */
     padding: 0;
     font-size: 4rem;
-bottom:9rem;
+bottom:15rem;
 }
 .controls i{
     display: none;
