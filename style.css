@@ -120,7 +120,7 @@ html{
 .controls{
     position: absolute;
     width: 100%;
-   
+   margin-top:-5rem;
     /* background: #f1f1f1; */
     gap:6rem;
     display: flex;
@@ -129,7 +129,6 @@ html{
     /* flex-direction: column; */
     padding: 0;
     font-size: 4rem;
-bottom:15rem;
 }
 .controls i{
     display: none;
