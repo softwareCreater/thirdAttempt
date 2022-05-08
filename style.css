@@ -120,9 +120,9 @@ html{
 .controls{
     position: absolute;
     width: 100%;
-    bottom: 3rem;
+   
     /* background: #f1f1f1; */
-margin-top:-3rem;
+margin-top:3rem;
     gap:5rem;
     display: flex;
     justify-content: center;
