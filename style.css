@@ -120,8 +120,7 @@ html{
 .controls{
     position:absolute;
     width: 100%;
-   margin-top:0;
-      top:35rem;
+      bottom:6rem;
     /* background: #f1f1f1; */
     gap:6rem;
     display: flex;
