@@ -120,7 +120,7 @@ html{
 .controls{
     position:absolute;
     width: 100%;
-    bottom:-14rem;
+    bottom:2rem;
     gap:6rem;
     display: flex;
     justify-content: center;
