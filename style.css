@@ -118,9 +118,9 @@ html{
 
 }
 .controls{
-    position:absolute;
+    position:relative;
     width: 100%;
-    bottom:2rem;
+    bottom:-4rem;
     gap:6rem;
     display: flex;
     justify-content: center;
